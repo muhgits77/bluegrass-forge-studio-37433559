@@ -17,7 +17,7 @@ export function SpecialtyPage({ s }: { s: Specialty }) {
             <Eyebrow>{s.eyebrow}</Eyebrow>
             <h1 className="mt-4 font-display text-4xl font-bold leading-tight tracking-tight md:text-6xl">{s.title}</h1>
             <p className="mt-5 text-lg text-muted-foreground">{s.intro}</p>
-            <p className="mt-4 text-muted-foreground">Handcrafted in Monticello, KY. <strong className="text-foreground">Flat one-time pricing</strong> from $1,200. <strong className="text-foreground">You own the site and the code.</strong> No monthly retainer.</p>
+            <p className="mt-4 text-muted-foreground">Lake Cumberland web design, handcrafted by a Monticello KY website builder for Wayne County, Somerset and the lake towns. <strong className="text-foreground">Flat one-time pricing</strong> from $1,200. <strong className="text-foreground">You own the site and the code.</strong> No monthly retainer.</p>
             <div className="mt-8 flex flex-wrap gap-3"><CopperButton to="/quote">{s.cta}</CopperButton><GhostButton to="/services">See pricing</GhostButton></div>
           </div>
         </div>
@@ -50,6 +50,7 @@ export function SpecialtyPage({ s }: { s: Specialty }) {
         <section className="mx-auto max-w-7xl px-5 py-20">
           <Eyebrow>Live examples</Eyebrow>
           <h2 className="mt-3 font-display text-3xl font-bold">See it on real builds</h2>
+          <p className="mt-3 text-muted-foreground">Compare these with the <Link to="/services" className="text-primary">flat Services & Pricing</Link> or <Link to="/work" className="text-primary">every portfolio demo</Link>.</p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{examples.map((d) => <DemoCard key={d.title} demo={d} />)}</div>
         </section>
       )}
@@ -58,7 +59,7 @@ export function SpecialtyPage({ s }: { s: Specialty }) {
         <div className="rounded-3xl border border-primary bg-card p-10">
           <h2 className="font-display text-3xl font-bold md:text-4xl">Pay once. Own it forever.</h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">Tell me about your business and I'll send an honest flat-price proposal — from a neighbor in Monticello, not an agency.</p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3"><CopperButton to="/quote">{s.cta}</CopperButton><GhostButton to="/work">Browse all demos</GhostButton></div>
+          <div className="mt-8 flex flex-wrap justify-center gap-3"><CopperButton to="/quote">{s.cta}</CopperButton><GhostButton to="/services">Services & Pricing</GhostButton><GhostButton to="/work">Browse all demos</GhostButton></div>
           <p className="mt-6 text-sm text-muted-foreground">Prefer DIY? <Link to="/templates" className="text-primary">Website templates from ${pricing.websiteTemplateFrom}, calculators from ${pricing.calculatorFrom} →</Link></p>
         </div>
       </section>

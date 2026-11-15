@@ -43,8 +43,8 @@ const faq = [
 function Services() {
   return (
     <>
-      <PageHero eyebrow="Services & pricing — Monticello KY website designer" title="Website Services & Flat Pricing">
-        Flat-rate pricing. One-time. No surprises. When we’re done, <strong className="text-foreground">you own the code.</strong>
+      <PageHero eyebrow="Services & pricing — Monticello KY website designer" title="Lake Cumberland Web Design Services & Flat Pricing">
+        Wayne County web design and Somerset KY small business websites at flat-rate pricing. One-time. No surprises. When we’re done, <strong className="text-foreground">you own the code.</strong>
       </PageHero>
       <section className="mx-auto grid max-w-5xl gap-6 px-5 pb-20 md:grid-cols-2">
         {plans.map((p) => (
@@ -60,7 +60,7 @@ function Services() {
       </section>
       <section className="mx-auto max-w-7xl px-5 pb-20">
         <h2 className="font-display text-3xl font-bold">Built for every kind of lake business</h2>
-        <p className="mt-3 text-muted-foreground">Also see <a href="/restaurant-websites" className="text-primary">restaurant websites</a>.</p>
+        <p className="mt-3 text-muted-foreground">Also see <a href="/restaurant-websites" className="text-primary">restaurant websites</a>, the <a href="/service-areas" className="text-primary">towns I serve</a>, or <a href="/work" className="text-primary">live demos</a>. Prefer DIY? <a href="/templates" className="text-primary">Website templates from $129, calculators from $99</a> at <a href="https://bluegrasstemplates.com/" className="text-primary">bluegrasstemplates.com ↗</a>.</p>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {niches.map(([a, b, c, href]) => <div key={a} className="rounded-2xl border border-border bg-card p-6"><Eyebrow>{a}</Eyebrow><h3 className="mt-3 font-display text-xl font-bold">{b}</h3><p className="mt-2 text-sm text-muted-foreground">{c}</p>{href && <a href={href} className="mt-3 inline-block text-sm font-semibold text-primary">{a.replace(/s$/, "")} websites →</a>}</div>)}
         </div>

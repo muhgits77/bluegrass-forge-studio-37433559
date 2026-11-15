@@ -24,11 +24,22 @@ const towns = [
   ["whitley-city", "Whitley City, KY", "McCreary County · Pine Knot · Stearns · Big South Fork", "Whitley City is the McCreary County seat, south of the lake along US 27. Outdoor visitors heading to the Big South Fork and the national forest search on their phones for lodging, food and outfitters."],
 ];
 
+type SpecialtyPath = "/marina-websites" | "/fishing-guide-websites" | "/food-truck-websites" | "/restaurant-websites" | "/contractor-websites";
+const M: [SpecialtyPath, string] = ["/marina-websites", "Marina websites"];
+const F: [SpecialtyPath, string] = ["/fishing-guide-websites", "Fishing guide websites"];
+const T: [SpecialtyPath, string] = ["/food-truck-websites", "Food truck websites"];
+const R: [SpecialtyPath, string] = ["/restaurant-websites", "Restaurant websites"];
+const C: [SpecialtyPath, string] = ["/contractor-websites", "Contractor websites"];
+const niches: Record<string, [SpecialtyPath, string][]> = {
+  monticello: [R, T, C, M], jamestown: [M, F, R], burnside: [M, R, F], nancy: [M, R],
+  "russell-springs": [C, R, T], albany: [F, R, C], somerset: [R, C, T], "whitley-city": [R, C],
+};
+
 function Areas() {
   return (
     <>
-      <PageHero eyebrow="Service areas" title="Websites for every major boat ramp town on the lake.">
-        Flat pricing. Full ownership. Handcrafted in Monticello. No monthly website retainer.
+      <PageHero eyebrow="Service areas" title="Lake Cumberland Web Design for Every Boat Ramp Town">
+        Wayne County web design, Somerset KY small business websites, and everything between — from your Monticello KY website builder. Flat pricing. Full ownership. No monthly website retainer.
       </PageHero>
       <section className="mx-auto grid max-w-6xl gap-6 px-5 pb-20 md:grid-cols-2">
         {towns.map(([id, name, meta, body]) => (
@@ -36,6 +47,7 @@ function Areas() {
             <h2 className="font-display text-2xl font-bold">{name}</h2>
             <p className="mt-1 text-sm text-primary">{meta}</p>
             <p className="mt-4 text-muted-foreground">{body}</p>
+            <p className="mt-4 text-sm text-muted-foreground">Popular here: {(niches[id ?? ""] ?? []).map(([to, label], i) => <span key={to}>{i > 0 && " · "}<Link to={to} className="text-primary">{label}</Link></span>)}</p>
             <Link to="/quote" className="mt-4 inline-block text-sm font-semibold text-primary">Get a quote for {(name ?? "").replace(", KY", "")} →</Link>
           </article>
         ))}

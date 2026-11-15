@@ -36,7 +36,17 @@ export const localBusiness = {
   email: "contact@bluegrassdigitalforge.com",
   description: "Handcrafted websites for Lake Cumberland businesses, built in Monticello, KY. Flat one-time pricing and full code ownership.",
   priceRange: "$$",
-  address: { "@type": "PostalAddress", addressLocality: "Monticello", addressRegion: "KY", addressCountry: "US" },
+  address: { "@type": "PostalAddress", addressLocality: "Monticello", addressRegion: "KY", postalCode: "42633", addressCountry: "US" },
+  geo: { "@type": "GeoCoordinates", latitude: 36.8298, longitude: -84.8491 },
+  openingHoursSpecification: [{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "09:00", closes: "17:00" }],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Website packages",
+    itemListElement: [
+      { "@type": "Offer", name: "Starter Sites", price: "1200", priceCurrency: "USD", itemOffered: { "@type": "Service", name: "Starter Site website build" } },
+      { "@type": "Offer", name: "Business Suites", priceSpecification: { "@type": "PriceSpecification", minPrice: "2500", maxPrice: "4500", priceCurrency: "USD" }, itemOffered: { "@type": "Service", name: "Business Suite website build" } },
+    ],
+  },
   areaServed: ["Wayne County, KY", "Pulaski County, KY", "Russell County, KY", "McCreary County, KY", "Clinton County, KY", "Lake Cumberland"].map((name) => ({ "@type": "Place", name })),
   sameAs: ["https://bluegrasstemplates.com/"],
 };

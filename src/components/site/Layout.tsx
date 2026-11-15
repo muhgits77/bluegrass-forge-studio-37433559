@@ -117,6 +117,14 @@ export function TownsBand() {
             <Link key={t} to="/service-areas" className="rounded-full border border-border px-4 py-2 text-sm hover:border-primary">{t}</Link>
           ))}
         </div>
+        <div className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm font-semibold text-primary">
+          <Link to="/marina-websites">Marina sites →</Link>
+          <Link to="/fishing-guide-websites">Guide sites →</Link>
+          <Link to="/food-truck-websites">Food truck sites →</Link>
+          <Link to="/restaurant-websites">Restaurant sites →</Link>
+          <Link to="/contractor-websites">Contractor sites →</Link>
+          <Link to="/quote">Get a quote →</Link>
+        </div>
       </div>
     </section>
   );

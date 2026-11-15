@@ -1,15 +1,15 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { seo, breadcrumbLd } from "@/lib/seo";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { CopperButton, PageHero } from "@/components/site/Layout";
 
 export const Route = createFileRoute("/service-areas")({
-  head: () => ({
-    meta: [
-      { title: "Lake Cumberland Service Areas | Bluegrass Digital Forge" },
-      { name: "description", content: "Web design for Monticello, Somerset, Russell Springs, Jamestown, Burnside, Nancy, Albany, Whitley City and every Lake Cumberland ramp town." },
-      { property: "og:title", content: "Websites for every Lake Cumberland ramp town" },
-      { property: "og:description", content: "Wayne, Pulaski, Russell, Clinton & McCreary counties." },
-    ],
-  }),
+  head: () =>
+    seo({
+      path: "/service-areas",
+      title: "Lake Cumberland Service Areas | Bluegrass Digital Forge",
+      description: "Web design for Monticello, Somerset, Russell Springs, Jamestown, Burnside, Nancy, Albany, Whitley City and every Lake Cumberland ramp town.",
+      jsonLd: [breadcrumbLd([["Home", "/"], ["Service Areas", "/service-areas"]])],
+    }),
   component: Areas,
 });
 
@@ -36,10 +36,12 @@ function Areas() {
             <h2 className="font-display text-2xl font-bold">{name}</h2>
             <p className="mt-1 text-sm text-primary">{meta}</p>
             <p className="mt-4 text-muted-foreground">{body}</p>
+            <Link to="/quote" className="mt-4 inline-block text-sm font-semibold text-primary">Get a quote for {(name ?? "").replace(", KY", "")} →</Link>
           </article>
         ))}
       </section>
       <section className="mx-auto max-w-3xl px-5 pb-20 text-center">
+        <p className="mb-6 text-muted-foreground">Specialty sites: <Link to="/marina-websites" className="text-primary">marinas</Link> · <Link to="/fishing-guide-websites" className="text-primary">fishing guides</Link> · <Link to="/food-truck-websites" className="text-primary">food trucks</Link> · <Link to="/restaurant-websites" className="text-primary">restaurants</Link> · <Link to="/contractor-websites" className="text-primary">contractors</Link></p>
         <h2 className="font-display text-4xl font-bold">Ready to show up for the boaters at your ramp?</h2>
         <div className="mt-8"><CopperButton to="/quote">Get a free quote →</CopperButton></div>
       </section>

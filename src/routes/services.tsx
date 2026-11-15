@@ -1,15 +1,18 @@
+import { seo, breadcrumbLd } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { CopperButton, GhostButton, Eyebrow, PageHero, TownsBand } from "@/components/site/Layout";
 
 export const Route = createFileRoute("/services")({
-  head: () => ({
-    meta: [
-      { title: "Services & Flat Pricing | Bluegrass Digital Forge" },
-      { name: "description", content: "Starter Sites $1,200 and Business Suites from $2,500. Flat one-time pricing for Lake Cumberland businesses — you own the code." },
-      { property: "og:title", content: "Website Services & Flat Pricing" },
-      { property: "og:description", content: "Starter Sites $1,200 · Business Suites from $2,500 · Optional $79/mo care plan." },
-    ],
-  }),
+  head: () =>
+    seo({
+      path: "/services",
+      title: "Services & Flat Pricing | Bluegrass Digital Forge",
+      description: "Starter Sites $1,200 and Business Suites from $2,500. Flat one-time pricing for Lake Cumberland businesses \u2014 you own the code.",
+      jsonLd: [
+        breadcrumbLd([["Home", "/"], ["Services & Pricing", "/services"]]),
+        { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) },
+      ],
+    }),
   component: Services,
 });
 
@@ -17,13 +20,13 @@ const plans = [
   { name: "Starter Sites", who: "Food trucks, barbers & small shops", price: "$1,200", items: ["Up to 4 pages (Home, Menu/Services, About, Contact)", "Mobile-first design", "Tap-to-call / directions / contact form", "Domain & hosting setup", "Google Business Profile basics", "30 days of post-launch tweaks included"] },
   { name: "Business Suites", who: "Restaurants, shops & co-ops", price: "$2,500", popular: true, items: ["Up to 10 pages fully custom", "Online menu/schedule/gallery", "Booking/lead forms", "Google Business + local SEO", "Review collection + analytics", "Photo touch-ups & branding", "Branded email/social graphics", "60 days post-launch tweaks"] },
 ];
-const niches = [
-  ["Marinas", "Docks that book slips & rentals online.", "Burnside, Lee's Ford, State Dock, Conley Bottom & more."],
-  ["Fishing guides", "Striper & bass sites that get bookings.", "Trip pages, captain bios, trophy galleries."],
-  ["Food trucks", "“Where We Are Today” from your phone.", "Real-time location, menus & festivals."],
+const niches: [string, string, string, string?][] = [
+  ["Marinas", "Docks that book slips & rentals online.", "Burnside, Lee's Ford, State Dock, Conley Bottom & more.", "/marina-websites"],
+  ["Fishing guides", "Striper & bass sites that get bookings.", "Trip pages, captain bios, trophy galleries.", "/fishing-guide-websites"],
+  ["Food trucks", "“Where We Are Today” from your phone.", "Real-time location, menus & festivals.", "/food-truck-websites"],
   ["Lake houses", "Rental sites for lake houses.", "Calendars, galleries, house rules, and direct booking."],
   ["Bait & boats", "Bait shops and rental docks.", "Live bait, hours, fleet cards, fishing reports."],
-  ["Contractors", "Plumbers, roofers, HVAC and trades.", "Tap-to-call, service lists and quote forms."],
+  ["Contractors", "Plumbers, roofers, HVAC and trades.", "Tap-to-call, service lists and quote forms.", "/contractor-websites"],
 ];
 const branding = [["Business Card Design Only", "Custom digital business card files, print-ready.", "$150"], ["Cards + 250 Printed", "Design plus 250 premium printed cards.", "$250"], ["Cards + 500 Printed", "Design plus 500 premium printed cards.", "$300"], ["Branding Starter", "Logo refinement, color palette, business cards, email signature.", "$450"], ["Full Branding Kit", "Logo design, brand kit, printed cards, social templates, email signature.", "$750"]];
 const faq = [
@@ -56,8 +59,9 @@ function Services() {
       </section>
       <section className="mx-auto max-w-7xl px-5 pb-20">
         <h2 className="font-display text-3xl font-bold">Built for every kind of lake business</h2>
+        <p className="mt-3 text-muted-foreground">Also see <a href="/restaurant-websites" className="text-primary">restaurant websites</a>.</p>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {niches.map(([a, b, c]) => <div key={a} className="rounded-2xl border border-border bg-card p-6"><Eyebrow>{a}</Eyebrow><h3 className="mt-3 font-display text-xl font-bold">{b}</h3><p className="mt-2 text-sm text-muted-foreground">{c}</p></div>)}
+          {niches.map(([a, b, c, href]) => <div key={a} className="rounded-2xl border border-border bg-card p-6"><Eyebrow>{a}</Eyebrow><h3 className="mt-3 font-display text-xl font-bold">{b}</h3><p className="mt-2 text-sm text-muted-foreground">{c}</p>{href && <a href={href} className="mt-3 inline-block text-sm font-semibold text-primary">{a.replace(/s$/, "")} websites →</a>}</div>)}
         </div>
       </section>
       <section className="mx-auto max-w-7xl px-5 pb-20">

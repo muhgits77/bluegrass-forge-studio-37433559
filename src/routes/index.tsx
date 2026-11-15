@@ -1,3 +1,4 @@
+import { seo, localBusiness, website } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import hero from "@/assets/hero-lake.jpg";
 import { CopperButton, GhostButton, Eyebrow, TownsBand } from "@/components/site/Layout";
@@ -5,14 +6,13 @@ import { DemoCard } from "@/components/site/DemoCard";
 import { demos } from "@/lib/portfolio";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Lake Cumberland Business Websites | Bluegrass Digital Forge" },
-      { name: "description", content: "Handcrafted websites for restaurants, food trucks, marinas and shops around Lake Cumberland. Built in Monticello, KY. Flat pricing, you own the code." },
-      { property: "og:title", content: "Lake Cumberland Business Websites Built in Monticello, KY" },
-      { property: "og:description", content: "Flat pricing from $1,200. No monthly lock-in. Full code ownership." },
-    ],
-  }),
+  head: () =>
+    seo({
+      path: "/",
+      title: "Lake Cumberland Business Websites | Bluegrass Digital Forge",
+      description: "Handcrafted websites for restaurants, food trucks, marinas and shops around Lake Cumberland. Built in Monticello, KY. Flat pricing, you own the code.",
+      jsonLd: [localBusiness, website],
+    }),
   component: Index,
 });
 

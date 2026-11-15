@@ -1,3 +1,4 @@
+import { seo, breadcrumbLd } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { PageHero } from "@/components/site/Layout";
@@ -5,14 +6,13 @@ import { DemoCard } from "@/components/site/DemoCard";
 import { demos } from "@/lib/portfolio";
 
 export const Route = createFileRoute("/work")({
-  head: () => ({
-    meta: [
-      { title: "Website Demos & Portfolio | Bluegrass Digital Forge" },
-      { name: "description", content: "Live website demos for Lake Cumberland restaurants, food trucks, guides, retailers and trades — handcrafted in Monticello, KY." },
-      { property: "og:title", content: "Lake Cumberland Website Demos" },
-      { property: "og:description", content: "Click any card to open the live site." },
-    ],
-  }),
+  head: () =>
+    seo({
+      path: "/work",
+      title: "Website Demos & Portfolio | Bluegrass Digital Forge",
+      description: "Live website demos for Lake Cumberland restaurants, food trucks, guides, retailers and trades \u2014 handcrafted in Monticello, KY.",
+      jsonLd: [breadcrumbLd([["Home", "/"], ["My Work", "/work"]])],
+    }),
   component: Work,
 });
 
@@ -31,6 +31,7 @@ function Work() {
             <button key={c} onClick={() => setCat(c)} className={`rounded-full border px-4 py-2 text-sm ${c === cat ? "bg-copper border-transparent text-primary-foreground" : "border-border text-muted-foreground hover:border-primary"}`}>{c}</button>
           ))}
         </div>
+        <h2 className="sr-only">Portfolio demos</h2>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{list.map((d) => <DemoCard key={d.title} demo={d} />)}</div>
       </div>
     </>

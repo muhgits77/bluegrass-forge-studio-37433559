@@ -1,15 +1,15 @@
+import { seo, breadcrumbLd } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { CopperButton, PageHero } from "@/components/site/Layout";
 
 export const Route = createFileRoute("/blog")({
-  head: () => ({
-    meta: [
-      { title: "Blog | Bluegrass Digital Forge" },
-      { name: "description", content: "Website tips for Lake Cumberland businesses from a Monticello, KY website designer. More posts coming soon." },
-      { property: "og:title", content: "Bluegrass Digital Forge Blog" },
-      { property: "og:description", content: "Website tips for Lake Cumberland businesses. More posts coming soon." },
-    ],
-  }),
+  head: () =>
+    seo({
+      path: "/blog",
+      title: "Blog | Bluegrass Digital Forge",
+      description: "Website tips for Lake Cumberland businesses from a Monticello, KY website designer. More posts coming soon.",
+      jsonLd: [breadcrumbLd([["Home", "/"], ["Blog", "/blog"]])],
+    }),
   component: Blog,
 });
 

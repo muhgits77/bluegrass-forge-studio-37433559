@@ -1,3 +1,4 @@
+import { seo, breadcrumbLd } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
@@ -6,14 +7,13 @@ import { BUSINESS_TYPES, NEEDS, quoteSchema } from "@/lib/forms/schemas";
 import { submitQuote } from "@/lib/forms/submit.functions";
 
 export const Route = createFileRoute("/quote")({
-  head: () => ({
-    meta: [
-      { title: "Get a Website Quote | Bluegrass Digital Forge" },
-      { name: "description", content: "A few quick questions for your Lake Cumberland area project. Flat price proposal from the local Monticello builder." },
-      { property: "og:title", content: "Get a Free Website Quote" },
-      { property: "og:description", content: "Flat price proposal from the Monticello, KY builder. Takes a few minutes." },
-    ],
-  }),
+  head: () =>
+    seo({
+      path: "/quote",
+      title: "Get a Website Quote | Bluegrass Digital Forge",
+      description: "A few quick questions for your Lake Cumberland area project. Flat price proposal from the local Monticello builder.",
+      jsonLd: [breadcrumbLd([["Home", "/"], ["Get a Quote", "/quote"]])],
+    }),
   component: Quote,
 });
 

@@ -1,16 +1,16 @@
+import { seo, breadcrumbLd } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import hero from "@/assets/hero-lake.jpg";
 import { CopperButton, GhostButton, Eyebrow } from "@/components/site/Layout";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About the Monticello KY Website Designer | Bluegrass Digital Forge" },
-      { name: "description", content: "A neighbor on Lake Cumberland building websites with flat pricing and full ownership — no agency middlemen, real local replies." },
-      { property: "og:title", content: "About Bluegrass Digital Forge" },
-      { property: "og:description", content: "Living and working on Lake Cumberland. Flat pricing. You own the code." },
-    ],
-  }),
+  head: () =>
+    seo({
+      path: "/about",
+      title: "About the Monticello KY Website Designer | Bluegrass Digital Forge",
+      description: "A neighbor on Lake Cumberland building websites with flat pricing and full ownership \u2014 no agency middlemen, real local replies.",
+      jsonLd: [breadcrumbLd([["Home", "/"], ["About", "/about"]])],
+    }),
   component: About,
 });
 

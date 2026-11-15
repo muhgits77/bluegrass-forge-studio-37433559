@@ -1,15 +1,15 @@
+import { seo, breadcrumbLd } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Eyebrow, PageHero } from "@/components/site/Layout";
 
 export const Route = createFileRoute("/templates")({
-  head: () => ({
-    meta: [
-      { title: "DIY Website Templates from $99 | Bluegrass Digital Forge" },
-      { name: "description", content: "Ready-to-remix website templates hand-built in Kentucky. From $99, one-time purchase, free updates. Available at bluegrasstemplates.com." },
-      { property: "og:title", content: "DIY Website Templates from $99" },
-      { property: "og:description", content: "Hand-built in Kentucky. One-time purchase. Free updates." },
-    ],
-  }),
+  head: () =>
+    seo({
+      path: "/templates",
+      title: "DIY Website Templates from $99 | Bluegrass Digital Forge",
+      description: "Ready-to-remix website templates hand-built in Kentucky. From $99, one-time purchase, free updates. Available at bluegrasstemplates.com.",
+      jsonLd: [breadcrumbLd([["Home", "/"], ["Templates", "/templates"]])],
+    }),
   component: Templates,
 });
 

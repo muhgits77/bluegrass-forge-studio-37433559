@@ -1,3 +1,4 @@
+import { seo, breadcrumbLd } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
@@ -6,14 +7,13 @@ import { contactSchema } from "@/lib/forms/schemas";
 import { submitContact } from "@/lib/forms/submit.functions";
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact | Bluegrass Digital Forge" },
-      { name: "description", content: "Talk to the Monticello KY website designer serving Lake Cumberland businesses. Real replies, usually within a few hours." },
-      { property: "og:title", content: "Contact Bluegrass Digital Forge" },
-      { property: "og:description", content: "Real replies from Monticello, KY." },
-    ],
-  }),
+  head: () =>
+    seo({
+      path: "/contact",
+      title: "Contact | Bluegrass Digital Forge",
+      description: "Talk to the Monticello KY website designer serving Lake Cumberland businesses. Real replies, usually within a few hours.",
+      jsonLd: [breadcrumbLd([["Home", "/"], ["Contact", "/contact"]])],
+    }),
   component: Contact,
 });
 

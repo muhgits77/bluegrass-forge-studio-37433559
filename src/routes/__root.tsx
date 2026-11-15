@@ -85,8 +85,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Bluegrass Digital Forge — Lake Cumberland Websites" },
       { name: "description", content: "Handcrafted websites for Lake Cumberland businesses, built in Monticello, KY." },
       { name: "author", content: "Bluegrass Digital Forge" },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {

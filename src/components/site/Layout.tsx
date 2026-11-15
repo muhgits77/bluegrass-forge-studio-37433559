@@ -5,7 +5,10 @@ const nav = [
   { to: "/", label: "Home" },
   { to: "/work", label: "My Work" },
   { to: "/services", label: "Services & Pricing" },
+  { to: "/templates", label: "Templates" },
   { to: "/service-areas", label: "Service Areas" },
+  { to: "/blog", label: "Blog" },
+  { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -39,7 +42,7 @@ export function SiteHeader() {
           <span className="block font-display text-lg font-bold">Bluegrass Digital Forge</span>
           <span className="block text-xs text-primary">Forged for the Lake • Monticello, KY</span>
         </Link>
-        <nav className="hidden items-center gap-6 text-sm text-muted-foreground lg:flex">
+        <nav className="hidden items-center gap-5 text-sm text-muted-foreground xl:flex">
           {nav.map((n) => (
             <Link key={n.to} to={n.to} activeOptions={{ exact: true }} activeProps={{ className: "text-foreground border-b-2 border-primary pb-1" }} className="hover:text-foreground">
               {n.label}
@@ -50,7 +53,7 @@ export function SiteHeader() {
           Get a free quote →
         </Link>
       </div>
-      <nav className="flex gap-4 overflow-x-auto px-5 pb-3 text-sm text-muted-foreground lg:hidden">
+      <nav className="flex gap-4 overflow-x-auto px-5 pb-3 text-sm text-muted-foreground xl:hidden">
         {nav.map((n) => (
           <Link key={n.to} to={n.to} activeOptions={{ exact: true }} activeProps={{ className: "text-primary" }} className="whitespace-nowrap">
             {n.label}
@@ -77,6 +80,13 @@ export function SiteFooter() {
           <p>Wayne, Pulaski, Russell & McCreary counties</p>
           <a href={`mailto:${EMAIL}`} className="mt-2 block text-primary">{EMAIL}</a>
           <a href="https://bluegrasstemplates.com/" className="mt-2 block hover:text-foreground">DIY templates from $99 ↗</a>
+          <div className="mt-4 flex flex-col gap-1">
+            <Link to="/marina-websites" className="hover:text-foreground">Marina websites</Link>
+            <Link to="/fishing-guide-websites" className="hover:text-foreground">Fishing guide websites</Link>
+            <Link to="/food-truck-websites" className="hover:text-foreground">Food truck websites</Link>
+            <Link to="/restaurant-websites" className="hover:text-foreground">Restaurant websites</Link>
+            <Link to="/contractor-websites" className="hover:text-foreground">Contractor websites</Link>
+          </div>
         </div>
       </div>
       <p className="pb-8 text-center text-xs text-muted-foreground">© {new Date().getFullYear()} Bluegrass Digital Forge · Monticello, Kentucky</p>

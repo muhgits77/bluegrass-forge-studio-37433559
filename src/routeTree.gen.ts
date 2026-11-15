@@ -10,10 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ContractorWebsitesRouteImport } from './routes/contractor-websites'
+import { Route as FishingGuideWebsitesRouteImport } from './routes/fishing-guide-websites'
+import { Route as FoodTruckWebsitesRouteImport } from './routes/food-truck-websites'
+import { Route as MarinaWebsitesRouteImport } from './routes/marina-websites'
 import { Route as QuoteRouteImport } from './routes/quote'
+import { Route as RestaurantWebsitesRouteImport } from './routes/restaurant-websites'
 import { Route as ServiceAreasRouteImport } from './routes/service-areas'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as TemplatesRouteImport } from './routes/templates'
 import { Route as WorkRouteImport } from './routes/work'
 
 const IndexRoute = IndexRouteImport.update({
@@ -21,14 +29,49 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContractorWebsitesRoute = ContractorWebsitesRouteImport.update({
+  id: '/contractor-websites',
+  path: '/contractor-websites',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FishingGuideWebsitesRoute = FishingGuideWebsitesRouteImport.update({
+  id: '/fishing-guide-websites',
+  path: '/fishing-guide-websites',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FoodTruckWebsitesRoute = FoodTruckWebsitesRouteImport.update({
+  id: '/food-truck-websites',
+  path: '/food-truck-websites',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarinaWebsitesRoute = MarinaWebsitesRouteImport.update({
+  id: '/marina-websites',
+  path: '/marina-websites',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const QuoteRoute = QuoteRouteImport.update({
   id: '/quote',
   path: '/quote',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RestaurantWebsitesRoute = RestaurantWebsitesRouteImport.update({
+  id: '/restaurant-websites',
+  path: '/restaurant-websites',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServiceAreasRoute = ServiceAreasRouteImport.update({
@@ -41,6 +84,11 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TemplatesRoute = TemplatesRouteImport.update({
+  id: '/templates',
+  path: '/templates',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
   path: '/work',
@@ -49,51 +97,118 @@ const WorkRoute = WorkRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
+  '/contractor-websites': typeof ContractorWebsitesRoute
+  '/fishing-guide-websites': typeof FishingGuideWebsitesRoute
+  '/food-truck-websites': typeof FoodTruckWebsitesRoute
+  '/marina-websites': typeof MarinaWebsitesRoute
   '/quote': typeof QuoteRoute
+  '/restaurant-websites': typeof RestaurantWebsitesRoute
   '/service-areas': typeof ServiceAreasRoute
   '/services': typeof ServicesRoute
+  '/templates': typeof TemplatesRoute
   '/work': typeof WorkRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
+  '/contractor-websites': typeof ContractorWebsitesRoute
+  '/fishing-guide-websites': typeof FishingGuideWebsitesRoute
+  '/food-truck-websites': typeof FoodTruckWebsitesRoute
+  '/marina-websites': typeof MarinaWebsitesRoute
   '/quote': typeof QuoteRoute
+  '/restaurant-websites': typeof RestaurantWebsitesRoute
   '/service-areas': typeof ServiceAreasRoute
   '/services': typeof ServicesRoute
+  '/templates': typeof TemplatesRoute
   '/work': typeof WorkRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
+  '/contractor-websites': typeof ContractorWebsitesRoute
+  '/fishing-guide-websites': typeof FishingGuideWebsitesRoute
+  '/food-truck-websites': typeof FoodTruckWebsitesRoute
+  '/marina-websites': typeof MarinaWebsitesRoute
   '/quote': typeof QuoteRoute
+  '/restaurant-websites': typeof RestaurantWebsitesRoute
   '/service-areas': typeof ServiceAreasRoute
   '/services': typeof ServicesRoute
+  '/templates': typeof TemplatesRoute
   '/work': typeof WorkRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/contact' | '/quote' | '/service-areas' | '/services' | '/work'
+    | '/'
+    | '/about'
+    | '/blog'
+    | '/contact'
+    | '/contractor-websites'
+    | '/fishing-guide-websites'
+    | '/food-truck-websites'
+    | '/marina-websites'
+    | '/quote'
+    | '/restaurant-websites'
+    | '/service-areas'
+    | '/services'
+    | '/templates'
+    | '/work'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/quote' | '/service-areas' | '/services' | '/work'
+  to:
+    | '/'
+    | '/about'
+    | '/blog'
+    | '/contact'
+    | '/contractor-websites'
+    | '/fishing-guide-websites'
+    | '/food-truck-websites'
+    | '/marina-websites'
+    | '/quote'
+    | '/restaurant-websites'
+    | '/service-areas'
+    | '/services'
+    | '/templates'
+    | '/work'
   id:
     | '__root__'
     | '/'
+    | '/about'
+    | '/blog'
     | '/contact'
+    | '/contractor-websites'
+    | '/fishing-guide-websites'
+    | '/food-truck-websites'
+    | '/marina-websites'
     | '/quote'
+    | '/restaurant-websites'
     | '/service-areas'
     | '/services'
+    | '/templates'
     | '/work'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  BlogRoute: typeof BlogRoute
   ContactRoute: typeof ContactRoute
+  ContractorWebsitesRoute: typeof ContractorWebsitesRoute
+  FishingGuideWebsitesRoute: typeof FishingGuideWebsitesRoute
+  FoodTruckWebsitesRoute: typeof FoodTruckWebsitesRoute
+  MarinaWebsitesRoute: typeof MarinaWebsitesRoute
   QuoteRoute: typeof QuoteRoute
+  RestaurantWebsitesRoute: typeof RestaurantWebsitesRoute
   ServiceAreasRoute: typeof ServiceAreasRoute
   ServicesRoute: typeof ServicesRoute
+  TemplatesRoute: typeof TemplatesRoute
   WorkRoute: typeof WorkRoute
 }
 
@@ -106,6 +221,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -113,11 +242,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contractor-websites': {
+      id: '/contractor-websites'
+      path: '/contractor-websites'
+      fullPath: '/contractor-websites'
+      preLoaderRoute: typeof ContractorWebsitesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fishing-guide-websites': {
+      id: '/fishing-guide-websites'
+      path: '/fishing-guide-websites'
+      fullPath: '/fishing-guide-websites'
+      preLoaderRoute: typeof FishingGuideWebsitesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/food-truck-websites': {
+      id: '/food-truck-websites'
+      path: '/food-truck-websites'
+      fullPath: '/food-truck-websites'
+      preLoaderRoute: typeof FoodTruckWebsitesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marina-websites': {
+      id: '/marina-websites'
+      path: '/marina-websites'
+      fullPath: '/marina-websites'
+      preLoaderRoute: typeof MarinaWebsitesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/quote': {
       id: '/quote'
       path: '/quote'
       fullPath: '/quote'
       preLoaderRoute: typeof QuoteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/restaurant-websites': {
+      id: '/restaurant-websites'
+      path: '/restaurant-websites'
+      fullPath: '/restaurant-websites'
+      preLoaderRoute: typeof RestaurantWebsitesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/service-areas': {
@@ -134,6 +298,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/templates': {
+      id: '/templates'
+      path: '/templates'
+      fullPath: '/templates'
+      preLoaderRoute: typeof TemplatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/work': {
       id: '/work'
       path: '/work'
@@ -146,10 +317,18 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  BlogRoute: BlogRoute,
   ContactRoute: ContactRoute,
+  ContractorWebsitesRoute: ContractorWebsitesRoute,
+  FishingGuideWebsitesRoute: FishingGuideWebsitesRoute,
+  FoodTruckWebsitesRoute: FoodTruckWebsitesRoute,
+  MarinaWebsitesRoute: MarinaWebsitesRoute,
   QuoteRoute: QuoteRoute,
+  RestaurantWebsitesRoute: RestaurantWebsitesRoute,
   ServiceAreasRoute: ServiceAreasRoute,
   ServicesRoute: ServicesRoute,
+  TemplatesRoute: TemplatesRoute,
   WorkRoute: WorkRoute,
 }
 export const routeTree = rootRouteImport

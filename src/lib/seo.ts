@@ -38,7 +38,7 @@ export const localBusiness = {
   priceRange: "$$",
   address: { "@type": "PostalAddress", addressLocality: "Monticello", addressRegion: "KY", postalCode: "42633", addressCountry: "US" },
   geo: { "@type": "GeoCoordinates", latitude: 36.8298, longitude: -84.8491 },
-  openingHoursSpecification: [{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "09:00", closes: "17:00" }],
+  openingHoursSpecification: [{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], opens: "09:00", closes: "18:00" }],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Website packages",

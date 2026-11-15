@@ -44,7 +44,7 @@ function Services() {
   return (
     <>
       <PageHero eyebrow="Services & pricing — Monticello KY website designer" title="Website Services & Flat Pricing">
-        Transparent flat-rate pricing — one-time, no surprises. When we're done, <strong className="text-foreground">you own the code</strong> with full ownership forever.
+        Flat-rate pricing. One-time. No surprises. When we’re done, <strong className="text-foreground">you own the code.</strong>
       </PageHero>
       <section className="mx-auto grid max-w-5xl gap-6 px-5 pb-20 md:grid-cols-2">
         {plans.map((p) => (

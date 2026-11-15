@@ -15,10 +15,10 @@ export const Route = createFileRoute("/about")({
 });
 
 const values = [
-  ["Flat pricing, full ownership", "One clear flat rate for the build. You own the code from day one — no monthly hostage fees, no black-box platform. Host it with me or take it anywhere."],
-  ["No agency middlemen", "You talk to the person who builds your site. No account managers, no ticket queues, no overseas handoffs."],
-  ["Real local replies", "Text or call me. Stop me at the diner. Weekend answers before a busy Saturday — not a chat window halfway across the country."],
-  ["I know your customers", "Folks at the marina, families heading to the lake on Friday, contractors grabbing lunch in town. Sites that speak to them, not generic templates."],
+  ["Flat pricing, full ownership", "One flat rate for the build. You own the code from day one. No monthly fees to keep it. Host it with me or take it anywhere."],
+  ["No agency middlemen", "You talk to the person who builds the site. No account managers, no ticket queues, no overseas handoffs."],
+  ["Real local replies", "Text or call me. Stop me at the diner. Weekend answers before a busy Saturday."],
+  ["I know your customers", "Folks at the marina, families heading to the lake on Friday, contractors grabbing lunch in town. Sites that talk to them, not generic templates."],
 ];
 const counties = [
   ["Wayne County", "Monticello, Conley Bottom, Beaver Creek"],
@@ -34,8 +34,8 @@ function About() {
         <div>
           <Eyebrow>About — Monticello KY website designer</Eyebrow>
           <h1 className="mt-4 font-display text-4xl font-bold tracking-tight md:text-6xl">A neighbor on the lake, not an agency.</h1>
-          <p className="mt-6 text-lg text-muted-foreground">I live and work right here on Lake Cumberland. When you hire Bluegrass Digital Forge, you get honest <strong className="text-foreground">flat pricing</strong>, <strong className="text-foreground">full ownership</strong> of your site — <strong className="text-foreground">you own the code</strong> — and a real neighbor who knows the difference between a Wayne County food truck at the marina and a Somerset storefront.</p>
-          <p className="mt-4 text-muted-foreground">No lock-in, no proprietary platform holding your business hostage — just local craftsmanship and a flat rate you can plan around. Your website is yours forever.</p>
+          <p className="mt-6 text-lg text-muted-foreground">I live and work right here on Lake Cumberland. When you hire Bluegrass Digital Forge you get <strong className="text-foreground">flat pricing</strong>, <strong className="text-foreground">full ownership</strong> of the site — <strong className="text-foreground">you own the code</strong> — and a neighbor who knows the difference between a Wayne County food truck at the marina and a Somerset storefront.</p>
+          <p className="mt-4 text-muted-foreground">No lock-in. No platform holding your site. Just a flat rate you can plan on. The site is yours when it’s done.</p>
         </div>
         <img src={hero} alt="Golden hour over Lake Cumberland near Monticello, Kentucky" className="aspect-[4/3] w-full rounded-3xl border border-border object-cover" />
       </section>

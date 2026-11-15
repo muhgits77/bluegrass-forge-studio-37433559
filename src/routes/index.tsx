@@ -37,9 +37,9 @@ function Index() {
               Lake Cumberland Business Websites Built in <span className="text-copper">Monticello, KY</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-              Handcrafted sites for restaurants, food trucks, marinas, and shops around the lake — forged by a neighbor in Monticello. Honest <strong className="text-foreground">flat pricing</strong>, no monthly lock-in for the build. <strong className="text-foreground">You own the code</strong> with full ownership from day one.
+              Sites for restaurants, food trucks, marinas, and shops around the lake. Built by a neighbor in Monticello. <strong className="text-foreground">Flat pricing.</strong> No monthly lock-in for the build. <strong className="text-foreground">You own the code</strong> from day one.
             </p>
-            <p className="mt-4 max-w-xl text-muted-foreground">Built by a neighbor — never an agency. From Monticello to Jamestown, Burnside, and every ramp town in between.</p>
+            <p className="mt-4 max-w-xl text-muted-foreground">Built by a neighbor, not an agency. From Monticello to Jamestown, Burnside, and the ramp towns in between.</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <CopperButton to="/quote">Get a free quote →</CopperButton>
               <GhostButton to="/work">Browse live demos</GhostButton>
@@ -78,7 +78,7 @@ function Index() {
           <div>
             <Eyebrow>Website templates from ${pricing.websiteTemplateFrom}</Eyebrow>
             <h2 className="mt-3 font-display text-3xl font-bold">Prefer to build it yourself?</h2>
-            <p className="mt-4 text-muted-foreground">Ready-to-remix website templates hand-built in Kentucky. Website templates from <strong className="text-foreground">${pricing.websiteTemplateFrom}</strong>, calculators from <strong className="text-foreground">${pricing.calculatorFrom}</strong>. One-time purchase, free updates for bug fixes and refinements.</p>
+            <p className="mt-4 text-muted-foreground">Ready-to-remix website templates, hand-built in Kentucky. Launch a professional site in an afternoon. Website templates from <strong className="text-foreground">${pricing.websiteTemplateFrom}</strong>, calculators from <strong className="text-foreground">${pricing.calculatorFrom}</strong>. One-time purchase. Free updates for bug fixes and refinements.</p>
           </div>
           <div className="text-center md:text-right">
             <a href="https://bluegrasstemplates.com/" className="bg-copper inline-flex rounded-full px-7 py-3.5 font-semibold text-primary-foreground">Browse templates ↗</a>

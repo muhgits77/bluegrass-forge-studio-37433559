@@ -59,7 +59,7 @@ function Quote() {
 
   async function next(e: React.FormEvent) {
     e.preventDefault();
-    if (!validate(steps[step].fields)) return;
+    if (!validate(steps[step]!.fields)) return;
     if (step < steps.length - 1) return setStep(step + 1);
     const r = quoteSchema.safeParse(d);
     if (!r.success) return;
@@ -85,13 +85,13 @@ function Quote() {
         {status === "done" ? (
           <div role="status" className="rounded-3xl border border-primary bg-card p-10 text-center">
             <p className="text-copper font-display text-3xl font-bold">Quote request received.</p>
-            <p className="mt-3 text-muted-foreground">Thanks{d["name"] ? `, ${d["name"].split(" ")[0]}` : ""}! I'll review your project and get back to you with a flat-price proposal.</p>
+            <p className="mt-3 text-muted-foreground">Thanks{d["name"] ? `, ${d["name"].split(" ")[0] ?? ""}` : ""}! I'll review your project and get back to you with a flat-price proposal.</p>
           </div>
         ) : (
           <>
             <div className="mb-6 flex gap-2">{steps.map((s, i) => <div key={s.title} className={`h-1.5 flex-1 rounded-full ${i <= step ? "bg-copper" : "bg-muted"}`} />)}</div>
             <form noValidate onSubmit={next} className="space-y-5 rounded-3xl border border-border bg-card p-6 sm:p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Step {step + 1} of {steps.length} · {steps[step].title}</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Step {step + 1} of {steps.length} · {steps[step]!.title}</p>
               {step === 0 && <>{inp("name", "Your name")}{inp("email", "Email", "email")}{inp("phone", "Phone", "tel")}</>}
               {step === 1 && <>{inp("business_name", "Business name")}{inp("town", "Town (e.g. Monticello, Jamestown)")}</>}
               {step === 2 && <>

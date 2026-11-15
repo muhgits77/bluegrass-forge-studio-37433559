@@ -28,3 +28,6 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Site pages share header/footer and buttons from src/components/site/Layout.tsx, mounted once in __root; portfolio entries live in src/lib/portfolio.ts so the home and work pages stay in sync.
+- Contact and quote forms hand off to the visitor's email app (mailto) because no server email sending is set up yet.

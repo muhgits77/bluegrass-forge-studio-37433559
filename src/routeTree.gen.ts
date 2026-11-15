@@ -17,11 +17,13 @@ import { Route as ContractorWebsitesRouteImport } from './routes/contractor-webs
 import { Route as FishingGuideWebsitesRouteImport } from './routes/fishing-guide-websites'
 import { Route as FoodTruckWebsitesRouteImport } from './routes/food-truck-websites'
 import { Route as MarinaWebsitesRouteImport } from './routes/marina-websites'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as QuoteRouteImport } from './routes/quote'
 import { Route as RestaurantWebsitesRouteImport } from './routes/restaurant-websites'
 import { Route as ServiceAreasRouteImport } from './routes/service-areas'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as TemplatesRouteImport } from './routes/templates'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as WorkRouteImport } from './routes/work'
 
 const IndexRoute = IndexRouteImport.update({
@@ -64,6 +66,11 @@ const MarinaWebsitesRoute = MarinaWebsitesRouteImport.update({
   path: '/marina-websites',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const QuoteRoute = QuoteRouteImport.update({
   id: '/quote',
   path: '/quote',
@@ -89,6 +96,11 @@ const TemplatesRoute = TemplatesRouteImport.update({
   path: '/templates',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
   path: '/work',
@@ -104,11 +116,13 @@ export interface FileRoutesByFullPath {
   '/fishing-guide-websites': typeof FishingGuideWebsitesRoute
   '/food-truck-websites': typeof FoodTruckWebsitesRoute
   '/marina-websites': typeof MarinaWebsitesRoute
+  '/privacy': typeof PrivacyRoute
   '/quote': typeof QuoteRoute
   '/restaurant-websites': typeof RestaurantWebsitesRoute
   '/service-areas': typeof ServiceAreasRoute
   '/services': typeof ServicesRoute
   '/templates': typeof TemplatesRoute
+  '/terms': typeof TermsRoute
   '/work': typeof WorkRoute
 }
 export interface FileRoutesByTo {
@@ -120,11 +134,13 @@ export interface FileRoutesByTo {
   '/fishing-guide-websites': typeof FishingGuideWebsitesRoute
   '/food-truck-websites': typeof FoodTruckWebsitesRoute
   '/marina-websites': typeof MarinaWebsitesRoute
+  '/privacy': typeof PrivacyRoute
   '/quote': typeof QuoteRoute
   '/restaurant-websites': typeof RestaurantWebsitesRoute
   '/service-areas': typeof ServiceAreasRoute
   '/services': typeof ServicesRoute
   '/templates': typeof TemplatesRoute
+  '/terms': typeof TermsRoute
   '/work': typeof WorkRoute
 }
 export interface FileRoutesById {
@@ -137,11 +153,13 @@ export interface FileRoutesById {
   '/fishing-guide-websites': typeof FishingGuideWebsitesRoute
   '/food-truck-websites': typeof FoodTruckWebsitesRoute
   '/marina-websites': typeof MarinaWebsitesRoute
+  '/privacy': typeof PrivacyRoute
   '/quote': typeof QuoteRoute
   '/restaurant-websites': typeof RestaurantWebsitesRoute
   '/service-areas': typeof ServiceAreasRoute
   '/services': typeof ServicesRoute
   '/templates': typeof TemplatesRoute
+  '/terms': typeof TermsRoute
   '/work': typeof WorkRoute
 }
 export interface FileRouteTypes {
@@ -155,11 +173,13 @@ export interface FileRouteTypes {
     | '/fishing-guide-websites'
     | '/food-truck-websites'
     | '/marina-websites'
+    | '/privacy'
     | '/quote'
     | '/restaurant-websites'
     | '/service-areas'
     | '/services'
     | '/templates'
+    | '/terms'
     | '/work'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -171,11 +191,13 @@ export interface FileRouteTypes {
     | '/fishing-guide-websites'
     | '/food-truck-websites'
     | '/marina-websites'
+    | '/privacy'
     | '/quote'
     | '/restaurant-websites'
     | '/service-areas'
     | '/services'
     | '/templates'
+    | '/terms'
     | '/work'
   id:
     | '__root__'
@@ -187,11 +209,13 @@ export interface FileRouteTypes {
     | '/fishing-guide-websites'
     | '/food-truck-websites'
     | '/marina-websites'
+    | '/privacy'
     | '/quote'
     | '/restaurant-websites'
     | '/service-areas'
     | '/services'
     | '/templates'
+    | '/terms'
     | '/work'
   fileRoutesById: FileRoutesById
 }
@@ -204,11 +228,13 @@ export interface RootRouteChildren {
   FishingGuideWebsitesRoute: typeof FishingGuideWebsitesRoute
   FoodTruckWebsitesRoute: typeof FoodTruckWebsitesRoute
   MarinaWebsitesRoute: typeof MarinaWebsitesRoute
+  PrivacyRoute: typeof PrivacyRoute
   QuoteRoute: typeof QuoteRoute
   RestaurantWebsitesRoute: typeof RestaurantWebsitesRoute
   ServiceAreasRoute: typeof ServiceAreasRoute
   ServicesRoute: typeof ServicesRoute
   TemplatesRoute: typeof TemplatesRoute
+  TermsRoute: typeof TermsRoute
   WorkRoute: typeof WorkRoute
 }
 
@@ -270,6 +296,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MarinaWebsitesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/quote': {
       id: '/quote'
       path: '/quote'
@@ -305,6 +338,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TemplatesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/work': {
       id: '/work'
       path: '/work'
@@ -324,11 +364,13 @@ const rootRouteChildren: RootRouteChildren = {
   FishingGuideWebsitesRoute: FishingGuideWebsitesRoute,
   FoodTruckWebsitesRoute: FoodTruckWebsitesRoute,
   MarinaWebsitesRoute: MarinaWebsitesRoute,
+  PrivacyRoute: PrivacyRoute,
   QuoteRoute: QuoteRoute,
   RestaurantWebsitesRoute: RestaurantWebsitesRoute,
   ServiceAreasRoute: ServiceAreasRoute,
   ServicesRoute: ServicesRoute,
   TemplatesRoute: TemplatesRoute,
+  TermsRoute: TermsRoute,
   WorkRoute: WorkRoute,
 }
 export const routeTree = rootRouteImport

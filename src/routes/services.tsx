@@ -1,13 +1,14 @@
 import { seo, breadcrumbLd } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { CopperButton, GhostButton, Eyebrow, PageHero, TownsBand } from "@/components/site/Layout";
+import { businessSuiteRange } from "@/lib/pricing";
 
 export const Route = createFileRoute("/services")({
   head: () =>
     seo({
       path: "/services",
       title: "Services & Flat Pricing | Bluegrass Digital Forge",
-      description: "Starter Sites $1,200 and Business Suites from $2,500. Flat one-time pricing for Lake Cumberland businesses \u2014 you own the code.",
+      description: `Starter Sites $1,200 and Business Suites ${businessSuiteRange}. Flat one-time pricing for Lake Cumberland businesses — you own the code.`,
       jsonLd: [
         breadcrumbLd([["Home", "/"], ["Services & Pricing", "/services"]]),
         { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) },
@@ -18,7 +19,7 @@ export const Route = createFileRoute("/services")({
 
 const plans = [
   { name: "Starter Sites", who: "Food trucks, barbers & small shops", price: "$1,200", items: ["Up to 4 pages (Home, Menu/Services, About, Contact)", "Mobile-first design", "Tap-to-call / directions / contact form", "Domain & hosting setup", "Google Business Profile basics", "30 days of post-launch tweaks included"] },
-  { name: "Business Suites", who: "Restaurants, shops & co-ops", price: "$2,500", popular: true, items: ["Up to 10 pages fully custom", "Online menu/schedule/gallery", "Booking/lead forms", "Google Business + local SEO", "Review collection + analytics", "Photo touch-ups & branding", "Branded email/social graphics", "60 days post-launch tweaks"] },
+  { name: "Business Suites", who: "Restaurants, shops & co-ops", price: businessSuiteRange, popular: true, items: ["Up to 10 pages fully custom", "Online menu/schedule/gallery", "Booking/lead forms", "Google Business + local SEO", "Review collection + analytics", "Photo touch-ups & branding", "Branded email/social graphics", "60 days post-launch tweaks"] },
 ];
 const niches: [string, string, string, string?][] = [
   ["Marinas", "Docks that book slips & rentals online.", "Burnside, Lee's Ford, State Dock, Conley Bottom & more.", "/marina-websites"],
@@ -51,7 +52,7 @@ function Services() {
             {p.popular && <span className="bg-copper absolute -top-3 right-6 rounded-full px-3 py-1 text-xs font-bold text-primary-foreground">MOST POPULAR</span>}
             <h3 className="font-display text-2xl font-bold">{p.name}</h3>
             <p className="text-muted-foreground">{p.who}</p>
-            <p className="mt-6 font-display text-5xl font-bold">{p.price}<span className="ml-2 font-sans text-sm font-normal text-muted-foreground">starting at · one-time</span></p>
+            <p className={`mt-6 font-display font-bold ${p.popular ? "text-3xl" : "text-5xl"}`}>{p.price}<span className="mt-2 block font-sans text-sm font-normal text-muted-foreground">{p.popular ? "one-time" : "starting at · one-time"}</span></p>
             <ul className="mt-6 space-y-2 text-sm">{p.items.map((i) => <li key={i} className="flex gap-3"><span className="text-primary">✓</span>{i}</li>)}</ul>
             <div className="mt-8"><CopperButton to="/quote">Start a {p.name.replace(/s$/, "")} →</CopperButton></div>
           </div>

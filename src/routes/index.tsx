@@ -4,6 +4,7 @@ import hero from "@/assets/hero-lake.jpg";
 import { CopperButton, GhostButton, Eyebrow, TownsBand } from "@/components/site/Layout";
 import { DemoCard } from "@/components/site/DemoCard";
 import { demos } from "@/lib/portfolio";
+import { pricing, businessSuiteRange } from "@/lib/pricing";
 
 export const Route = createFileRoute("/")({
   head: () =>
@@ -50,7 +51,7 @@ function Index() {
           <div className="rounded-3xl border border-border bg-card/70 p-8 backdrop-blur">
             <Eyebrow>Kentucky base rates</Eyebrow>
             <p className="mt-4 font-display text-6xl font-bold">$1,200 <span className="font-sans text-base font-normal text-muted-foreground">one-time · Starter Sites</span></p>
-            <p className="mt-4 text-muted-foreground">Business Suites from $2,500. Flat rate, no monthly lock-in for the build. Full ownership — you own the code.</p>
+            <p className="mt-4 text-muted-foreground">Business Suites {businessSuiteRange}. Flat rate, no monthly lock-in for the build. Full ownership — you own the code.</p>
             <ul className="mt-6 space-y-3 text-sm"><Check>Mobile-first, fast, accessible</Check><Check>Local SEO for real lake searches</Check><Check>Handcrafted — not template spam</Check></ul>
             <Link to="/services" className="mt-6 inline-block font-semibold text-primary">See full pricing →</Link>
           </div>
@@ -75,9 +76,9 @@ function Index() {
       <section className="mx-auto max-w-7xl px-5 pb-20">
         <div className="grid items-center gap-10 rounded-3xl border border-border bg-card p-10 md:grid-cols-2">
           <div>
-            <Eyebrow>DIY Templates · From $99</Eyebrow>
+            <Eyebrow>Website templates from ${pricing.websiteTemplateFrom}</Eyebrow>
             <h2 className="mt-3 font-display text-3xl font-bold">Prefer to build it yourself?</h2>
-            <p className="mt-4 text-muted-foreground">Ready-to-remix website templates hand-built in Kentucky. Launch a professional site in an afternoon — from <strong className="text-foreground">$99</strong>. One-time purchase, free updates for bug fixes and refinements.</p>
+            <p className="mt-4 text-muted-foreground">Ready-to-remix website templates hand-built in Kentucky. Website templates from <strong className="text-foreground">${pricing.websiteTemplateFrom}</strong>, calculators from <strong className="text-foreground">${pricing.calculatorFrom}</strong>. One-time purchase, free updates for bug fixes and refinements.</p>
           </div>
           <div className="text-center md:text-right">
             <a href="https://bluegrasstemplates.com/" className="bg-copper inline-flex rounded-full px-7 py-3.5 font-semibold text-primary-foreground">Browse templates ↗</a>

@@ -1,0 +1,5 @@
+- [x] Hide the Lovable badge and verify its setting.
+- [x] Correct template prices and Business Suite range.
+- [x] Add phone navigation and restore logo/footer credit.
+- [x] Restore Privacy/Terms pages and five missing live demos.
+- [x] Hide this parallel site from indexing; verify phone layout and tests.

@@ -30,5 +30,7 @@ use the editor.
 <!-- LOVABLE:END -->
 
 - Site pages share header/footer and buttons from src/components/site/Layout.tsx, mounted once in __root; portfolio entries live in src/lib/portfolio.ts so the home and work pages stay in sync.
+- Product pricing is centralized in src/lib/pricing.ts so pages and metadata share the same values.
+- Keep this parallel imported site noindex in the root head until explicitly cleared for indexing; the original live site remains unchanged.
 - Specialty pages (marina, fishing guide, food truck, restaurant, contractor) render one SpecialtyPage component from per-niche content in src/lib/specialties.ts so they stay consistent.
 - Contact and quote forms validate with shared zod schemas (src/lib/forms/schemas.ts) and save via server functions using the admin client; tables have RLS on with no public policies so visitors cannot read submissions.

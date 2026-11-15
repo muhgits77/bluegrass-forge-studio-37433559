@@ -1,6 +1,17 @@
+import monticello from "@/assets/monticello-eats.asset.json";
+import ridgeRun from "@/assets/ridge-run.asset.json";
+import anchorline from "@/assets/anchorline.asset.json";
+import ignite from "@/assets/ignite-fitness.asset.json";
+import landing from "@/assets/landing-point.asset.json";
+
 export type Demo = { title: string; category: string; description: string; image: string; url: string };
 
 export const demos: Demo[] = [
+  { title: "Monticello Eats & Finds", category: "Local Project · Live", description: "Free Lake Cumberland food guide with menus, hours, and directions for Monticello restaurants, food trucks, and hometown spots. Built and maintained locally.", image: monticello.url, url: "https://monticelloeatsandfinds.com/" },
+  { title: "Anchorline Guide Service", category: "Fishing Guide", description: "Lake Cumberland fishing guide site with species-based trip booking, captain bios, and trophy striper hunts.", image: anchorline.url, url: "https://anchorline-template.lovable.app/" },
+  { title: "Landing Point Bait & Tackle", category: "Bait & Tackle Shop", description: "Wayne County bait shop site with live bait availability, tackle catalog, fishing reports, and call-ahead holds for Lake Cumberland anglers.", image: landing.url, url: "https://cumberland-landing-demo.lovable.app/" },
+  { title: "Ignite Fitness Company", category: "Fitness", description: "Local gym website with class schedules, memberships, and a clear path to join — built for Monticello and Lake Cumberland towns.", image: ignite.url, url: "https://ignite-fitness-co.lovable.app/" },
+  { title: "Ridge Run Smokehouse", category: "Restaurant", description: "Kentucky pit BBQ website for Lake Cumberland with menu, catering, and a warm local supper-house feel. Portfolio example built in Monticello.", image: ridgeRun.url, url: "https://ridge-run-smokehouse.lovable.app/" },
   {
     "title": "Fiesta Taqueria",
     "category": "Food Truck",

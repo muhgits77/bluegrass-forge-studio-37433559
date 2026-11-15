@@ -1,5 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
+import { Menu } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetTrigger, SheetContent, SheetTitle } from "@/components/ui/sheet";
+import logo from "@/assets/forge-logo.jpg.asset.json";
+import { pricing } from "@/lib/pricing";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -35,12 +40,14 @@ export function Eyebrow({ children }: { children: ReactNode }) {
 }
 
 export function SiteHeader() {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4">
-        <Link to="/" className="leading-tight">
-          <span className="block font-display text-lg font-bold">Bluegrass Digital Forge</span>
-          <span className="block text-xs text-primary">Forged for the Lake • Monticello, KY</span>
+      <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-5 py-4 xl:flex xl:justify-between">
+        <Link to="/" className="flex min-w-0 items-center gap-3 leading-tight">
+          <img src={logo.url} alt="" width={44} height={44} className="h-11 w-11 shrink-0 rounded-md object-contain" />
+          <span className="min-w-0"><span className="block font-display text-base font-bold sm:text-lg">Bluegrass Digital Forge</span>
+          <span className="block text-xs text-primary">Forged for the Lake • Monticello, KY</span></span>
         </Link>
         <nav className="hidden items-center gap-5 text-sm text-muted-foreground xl:flex">
           {nav.map((n) => (
@@ -49,17 +56,20 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <Link to="/quote" className="bg-copper rounded-full px-5 py-2.5 text-sm font-semibold text-primary-foreground">
+        <Link to="/quote" className="bg-copper hidden shrink-0 rounded-full px-5 py-2.5 text-sm font-semibold text-primary-foreground xl:block">
           Get a free quote →
         </Link>
+        <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
+          <SheetTrigger asChild><Button variant="outline" size="icon" className="h-11 w-11 shrink-0 xl:hidden" aria-label="Open navigation menu"><Menu /></Button></SheetTrigger>
+          <SheetContent aria-describedby={undefined} className="w-[min(22rem,100%)] overflow-y-auto">
+            <SheetTitle className="pr-6 font-display">Bluegrass Digital Forge</SheetTitle>
+            <nav aria-label="Phone navigation" className="mt-6 flex flex-col gap-1">
+              {nav.map((n) => <Link key={n.to} to={n.to} onClick={() => setMenuOpen(false)} activeOptions={{ exact: true }} activeProps={{ className: "text-primary bg-accent" }} className="rounded-md px-3 py-3 text-foreground hover:bg-accent">{n.label}</Link>)}
+              <Link to="/quote" onClick={() => setMenuOpen(false)} className="bg-copper mt-4 rounded-full px-5 py-3 text-center font-semibold text-primary-foreground">Get a free quote →</Link>
+            </nav>
+          </SheetContent>
+        </Sheet>
       </div>
-      <nav className="flex gap-4 overflow-x-auto px-5 pb-3 text-sm text-muted-foreground xl:hidden">
-        {nav.map((n) => (
-          <Link key={n.to} to={n.to} activeOptions={{ exact: true }} activeProps={{ className: "text-primary" }} className="whitespace-nowrap">
-            {n.label}
-          </Link>
-        ))}
-      </nav>
     </header>
   );
 }
@@ -79,7 +89,7 @@ export function SiteFooter() {
         <div className="text-sm text-muted-foreground">
           <p>Wayne, Pulaski, Russell & McCreary counties</p>
           <a href={`mailto:${EMAIL}`} className="mt-2 block text-primary">{EMAIL}</a>
-          <a href="https://bluegrasstemplates.com/" className="mt-2 block hover:text-foreground">DIY templates from $99 ↗</a>
+          <a href="https://bluegrasstemplates.com/" className="mt-2 block hover:text-foreground">Website templates from ${pricing.websiteTemplateFrom}, calculators from ${pricing.calculatorFrom} ↗</a>
           <div className="mt-4 flex flex-col gap-1">
             <Link to="/marina-websites" className="hover:text-foreground">Marina websites</Link>
             <Link to="/fishing-guide-websites" className="hover:text-foreground">Fishing guide websites</Link>
@@ -89,7 +99,11 @@ export function SiteFooter() {
           </div>
         </div>
       </div>
-      <p className="pb-8 text-center text-xs text-muted-foreground">© {new Date().getFullYear()} Bluegrass Digital Forge · Monticello, Kentucky</p>
+      <div className="space-y-3 px-5 pb-8 text-center text-xs text-muted-foreground">
+        <p>Forged by Brian · Monticello, Kentucky</p>
+        <p>© {new Date().getFullYear()} Bluegrass Digital Forge</p>
+        <div className="flex justify-center gap-5"><Link to="/privacy" className="hover:text-foreground">Privacy</Link><Link to="/terms" className="hover:text-foreground">Terms</Link></div>
+      </div>
     </footer>
   );
 }

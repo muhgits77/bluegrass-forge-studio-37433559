@@ -3,6 +3,7 @@ import { CopperButton, GhostButton, Eyebrow } from "@/components/site/Layout";
 import { DemoCard } from "@/components/site/DemoCard";
 import { demos } from "@/lib/portfolio";
 import type { Specialty } from "@/lib/specialties";
+import { pricing } from "@/lib/pricing";
 
 export function SpecialtyPage({ s }: { s: Specialty }) {
   const examples = demos.filter((d) => s.demoCategories.includes(d.category) || s.demoTitles?.includes(d.title)).slice(0, 3);
@@ -58,7 +59,7 @@ export function SpecialtyPage({ s }: { s: Specialty }) {
           <h2 className="font-display text-3xl font-bold md:text-4xl">Pay once. Own it forever.</h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">Tell me about your business and I'll send an honest flat-price proposal — from a neighbor in Monticello, not an agency.</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3"><CopperButton to="/quote">{s.cta}</CopperButton><GhostButton to="/work">Browse all demos</GhostButton></div>
-          <p className="mt-6 text-sm text-muted-foreground">Prefer DIY? <Link to="/templates" className="text-primary">Templates from $99 →</Link></p>
+          <p className="mt-6 text-sm text-muted-foreground">Prefer DIY? <Link to="/templates" className="text-primary">Website templates from ${pricing.websiteTemplateFrom}, calculators from ${pricing.calculatorFrom} →</Link></p>
         </div>
       </section>
     </>
